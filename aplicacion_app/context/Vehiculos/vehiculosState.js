@@ -1,27 +1,28 @@
-import React, { usereducer} from 'react'
-import PedidosContext from './vehiculosContext'
-import PedidosReducer from './vehiculosReducer'
+import React, { useReducer} from 'react'
+import VehiculosContext from './vehiculosContext'
+import VehiculosReducer from './vehiculosReducer'
+import SolicitudServicio from '../../src/screens/SolicitudServicio'
 
-const PedidosState = props =>{
+const VehiculosState = props =>{
     //Crea el state Inicial 
     const initialState={
-        menu:[]
+        SolicitudServicio:[]
     }
 
     //userReducer con el dispatch
-    const [ state, dispatch] = usereducer(PedidosReducer,initialState)
+    const [ state, dispatch] = useReducer(VehiculosReducer,initialState)
 
     return(
-        <PedidosContext.Provider
+        <VehiculosContext.Provider
             value={{
-                pedido: state.pedido
+                SolicitudServicio: state.SolicitudServicio
 
             }}
         >
     
             {props.children}
-        </PedidosContext.Provider>
+        </VehiculosContext.Provider>
     )
 }
 
-export default PedidosState;
+export default VehiculosState;

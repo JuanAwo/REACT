@@ -1,11 +1,13 @@
-import React from 'react'
-import { View, Text } from 'react-native'
-const CatalogoVehiculos = () => {
-  return (
-    <View>
-        <Text>Este Componente Es Catalogo de Vehiculos.</Text>
-    </View>
-  )
+import React from 'react';
+import CatalogoVehiculos from './src/screens/CatalogoVehiculos';
+
+const App = () => {
+  const vehiculos = [
+    { id: 1, marca: 'Marca1', modelo: 'Modelo1', descripcion: 'Descripción1', precio: 10000, imagen: 'https://ejemplo.com/imagen1.jpg' },
+    { id: 2, marca: 'Marca2', modelo: 'Modelo2', descripcion: 'Descripción2', precio: 15000, imagen: 'https://ejemplo.com/imagen2.jpg' },
+  ];
+
+  return <CatalogoVehiculos vehiculos={vehiculos} />;
 }
 
-export default CatalogoVehiculos;
+export default App;

@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const PedidosContext = createContext ();
+const VehiculosContext = createContext ();
 
-export default PedidosContext;
+export default VehiculosContext;

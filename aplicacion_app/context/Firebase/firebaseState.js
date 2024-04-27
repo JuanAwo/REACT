@@ -1,21 +1,22 @@
-import React, { usereducer} from 'react'
+import React, { useReducer} from 'react'
 
-import FirebaseReducer from './firebaseReducer'
+import firebaseReducer from './firebaseReducer'
 import FirebaseContext from './firebaseContext'
+import CatalogoVehiculos from '../../src/screens/CatalogoVehiculos'
 
 const FirebaseState = props =>{
     //Crea el state Inicial 
     const initialState={
-        menu:[]
+        CatalogoVehiculos:[]
     }
 
     //userReducer con el dispatch
-    const [ state, dispatch] = usereducer(FirebaseReducer,initialState)
+    const [ state, dispatch] = useReducer(firebaseReducer,initialState)
 
     return(
         <FirebaseContext.Provider
             value={{
-                menu: state.menu
+                CatalogoVehiculos: state.CatalogoVehiculos
 
             }}
         >
