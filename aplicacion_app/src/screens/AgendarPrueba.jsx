@@ -1,7 +1,33 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+//import { View, Text, TextInput, Button } from 'react-native';
+import {} from '@react-navigation/stack'
+import {Container, Button,Text, View} from 'native-base'
+import { useNavigate } from '@react-navigation/native';
+import globalStyles from '../../styles/global';
 
-const SolicitarPruebas = () => {
+const AgendarPrueba = () =>{
+  const navigate = useNavigate();
+  return (
+    <Container>
+      <View style = {globalStyles.contenedor}>
+        <Button style = {globalStyles.button}
+          rounded={'full'}
+          onPress={()=>navigate.navigate('CatalogoVehiculos') }
+        
+        >
+          <Text style = {globalStyles.buttonText}>
+            Agendar nueva prueba
+            </Text>
+        </Button>
+      </View>
+    </Container>
+  );
+}
+
+
+
+//Validacion de campos
+/*const SolicitarPruebas = () => {
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
@@ -81,6 +107,6 @@ const SolicitarPruebas = () => {
       <Button onPress={handleSubmit} title='Enviar' />
     </View>
   );
-};
+};*/
 
-export default SolicitarPruebas;
+export default AgendarPrueba;

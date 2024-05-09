@@ -1,13 +1,29 @@
-import React from 'react';
-import CatalogoVehiculos from './src/screens/CatalogoVehiculos';
+import React, {useEffect,useContext, Fragment} from 'react';
+import { View, Text } from 'react-native';
+import globalStyles from '../../styles/global';
+import { useNavigation, useNavigationBuilder } from '@react-navigation/native';
+import firebaseContext from '../../context/firebase/firebaseContext';
+import VehiculosContext from '../../context/vehiculos/vehiculosContext';
+import { Fragment, useContext, useEffect } from 'react';
 
-const App = () => {
-  const vehiculos = [
-    { id: 1, marca: 'Marca1', modelo: 'Modelo1', descripcion: 'Descripción1', precio: 10000, imagen: 'https://ejemplo.com/imagen1.jpg' },
-    { id: 2, marca: 'Marca2', modelo: 'Modelo2', descripcion: 'Descripción2', precio: 15000, imagen: 'https://ejemplo.com/imagen2.jpg' },
-  ];
 
-  return <CatalogoVehiculos vehiculos={vehiculos} />;
+
+
+const CatalogoVehiculos = () => {
+  const navigation = useNavigation();
+  const {CatalogoVehiculos,obtenerVehiculos} = useContext(firebaseContext)
+  const {seleccionarVehiculos} = useContext(VehiculosContext)
+
+  useEffect(()=>{
+    obtenerVehiculos()
+  }, [])
+  return (
+    <View>
+      <Text>Catalogo pa</Text>
+    </View>
+  )
 }
 
-export default App;
+
+
+export default CatalogoVehiculos;

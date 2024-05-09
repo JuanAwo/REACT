@@ -1,0 +1,4 @@
+export const OBTENER_VEHICULOS_EXITO = 'OBTENER_VEHICULOS_EXITO';
+
+//Estado para los pedidos 
+export const SELECCIONAR_VEHICULOS = 'SELECCIONAR_VEHICULOS';

@@ -8,4 +8,4 @@ const DetalleVehiculo = () => {
   )
 }
 
-export default DetalleVehiculo
+export default DetalleVehiculo;
