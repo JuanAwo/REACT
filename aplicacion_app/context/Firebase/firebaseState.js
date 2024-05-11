@@ -1,5 +1,5 @@
 import React, { useReducer} from 'react'
-
+import firebase from 'firebase/compat/app'
 import firebaseReducer from './firebaseReducer'
 import FirebaseContext from './firebaseContext'
 import CatalogoVehiculos from '../../src/screens/CatalogoVehiculos'
@@ -11,6 +11,12 @@ const FirebaseState = props =>{
     const initialState={
         CatalogoVehiculos:[]
     }
+
+    const firebaseConfig = {
+        // Configuración de Firebase
+    };
+    firebase.initializeApp(firebaseConfig);
+
 
     //userReducer con el dispatch
     const [ state, dispatch] = useReducer(firebaseReducer,initialState)

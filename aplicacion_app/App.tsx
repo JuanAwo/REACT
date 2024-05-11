@@ -20,9 +20,10 @@ import { NativeBaseProvider } from 'native-base';
 const App = () => {
     const Stack = createStackNavigator();
   return (
+    <NavigationContainer>
       <FirebaseState>
           <VehiculosState>
-            <NavigationContainer>
+            <NativeBaseProvider>
               <Stack.Navigator>
                 <Stack.Screen name='Inicio' component={Inicio}/>
                 <Stack.Screen name='AgendarPrueba' component={AgendarPrueba}/>
@@ -31,9 +32,10 @@ const App = () => {
                 <Stack.Screen name='SolicitudInformacion' component={SolicitudInformacion}/>
                 <Stack.Screen name='SolicitudServicio' component={SolicitudServicio}/>
               </Stack.Navigator>
-            </NavigationContainer>
+            </NativeBaseProvider>
           </VehiculosState>
       </FirebaseState>
+    </NavigationContainer>
   )
 }
 
