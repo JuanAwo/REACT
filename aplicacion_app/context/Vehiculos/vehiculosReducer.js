@@ -1,4 +1,4 @@
-import { SELECCIONAR_VEHICULOS } from "../../types";
+import { SELECCIONAR_VEHICULOS, GUARDAR_VEHICULO } from "../../types";
 
 export default (state,action) =>{
     switch(action.type){
@@ -7,6 +7,11 @@ export default (state,action) =>{
             ...state,
             vehiculos: action.payload
         }
+        case GUARDAR_VEHICULO:
+            return{
+                ...state,
+                vehiculo: action.payload
+            }
         default:
             return state;
     }

@@ -13,29 +13,28 @@ import DetalleVehiculo from './src/screens/DetalleVehiculo';
 import VehiculosState from './context/vehiculos/vehiculosState';
 import Inicio from './src/screens/Inicio';
 import { NativeBaseProvider } from 'native-base';
-
-
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
 const App = () => {
     const Stack = createStackNavigator();
   return (
-    <NavigationContainer>
-      <FirebaseState>
-          <VehiculosState>
-            <NativeBaseProvider>
-              <Stack.Navigator>
-                <Stack.Screen name='Inicio' component={Inicio}/>
-                <Stack.Screen name='AgendarPrueba' component={AgendarPrueba}/>
-                <Stack.Screen name='CatalogoVehiculos' component={CatalogoVehiculos}/>
-                <Stack.Screen name='DetalleVehiculo' component={DetalleVehiculo}/>
-                <Stack.Screen name='SolicitudInformacion' component={SolicitudInformacion}/>
-                <Stack.Screen name='SolicitudServicio' component={SolicitudServicio}/>
-              </Stack.Navigator>
-            </NativeBaseProvider>
-          </VehiculosState>
-      </FirebaseState>
-    </NavigationContainer>
+    <NativeBaseProvider>
+      <NavigationContainer>
+        <FirebaseState>
+            <VehiculosState>
+                <Stack.Navigator>
+                  <Stack.Screen name='Inicio' component={Inicio}/>
+                  <Stack.Screen name='CatalogoVehiculos' component={CatalogoVehiculos}/>
+                  <Stack.Screen name='AgendarPrueba' component={AgendarPrueba}/>
+                  <Stack.Screen name='SolicitudServicio' component={SolicitudServicio}/>
+                  <Stack.Screen name='DetalleVehiculo' component={DetalleVehiculo}/>
+                  <Stack.Screen name='SolicitudInformacion' component={SolicitudInformacion}/>
+                </Stack.Navigator>
+            </VehiculosState>
+        </FirebaseState>
+      </NavigationContainer>
+      </NativeBaseProvider>
   )
 }
 

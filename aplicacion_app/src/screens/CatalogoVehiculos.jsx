@@ -24,7 +24,7 @@ const CatalogoVehiculos = () => {
         <ScrollView>
           <View>
              {CatalogoVehiculos.map((vehiculo, i)=>{
-                const {categoria, descripcion, imagen, marca, modelo, precio, id} = plato
+                const {categoria, descripcion, imagen, marca, modelo, precio, id} = vehiculo
                 return(
                   <Fragment>
                     <Avatar size='70px' source={{uri:imagen}}></Avatar>

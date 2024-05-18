@@ -2,7 +2,10 @@ import React, { useReducer} from 'react'
 import VehiculosContext from './vehiculosContext'
 import VehiculosReducer from './vehiculosReducer'
 import SolicitudServicio from '../../src/screens/SolicitudServicio'
-import { SELECCIONAR_VEHICULOS } from '../../types'
+import { SELECCIONAR_VEHICULOS,
+    GUARDAR_VEHICULO
+
+} from '../../types'
 
 const VehiculosState = props =>{
     //Crea el state Inicial 
@@ -21,12 +24,22 @@ const VehiculosState = props =>{
             payload: Vehiculos
         })
     }
+    
+    const guardarVehiculo = vehiculo =>{
+        dispatch({
+            type: GUARDAR_VEHICULO,
+            payload: vehiculo
+        })
+    }
+
+
     return(
         <VehiculosContext.Provider
             value={{
                 SolicitudServicio: state.SolicitudServicio,
-                Vehiculos: state.Vehiculos,
-                seleccionarVehiculos
+                vehiculos: state.vehiculos,
+                seleccionarVehiculos,
+                guardarVehiculo
 
             }}
         >

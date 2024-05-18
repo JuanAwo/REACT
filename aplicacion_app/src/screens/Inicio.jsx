@@ -4,6 +4,7 @@ import globalStyles from "../../styles/global";
 import {Container, Button, Text} from 'native-base'
 import { useNavigation } from "@react-navigation/native";
 
+
 const Inicio = () => {
     const navigation = useNavigation();
       return (

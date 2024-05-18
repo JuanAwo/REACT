@@ -1,5 +1,5 @@
 import React, { useReducer} from 'react'
-import firebase from 'firebase/compat/app'
+import firebase from '../../firebase'
 import firebaseReducer from './firebaseReducer'
 import FirebaseContext from './firebaseContext'
 import CatalogoVehiculos from '../../src/screens/CatalogoVehiculos'
@@ -12,12 +12,6 @@ const FirebaseState = props =>{
         CatalogoVehiculos:[]
     }
 
-    const firebaseConfig = {
-        // Configuración de Firebase
-    };
-    firebase.initializeApp(firebaseConfig);
-
-
     //userReducer con el dispatch
     const [ state, dispatch] = useReducer(firebaseReducer,initialState)
     //Consultar productos
@@ -25,7 +19,7 @@ const FirebaseState = props =>{
         //se hace consulta a firebase
         firebase.db
             .collection('vehiculos')
-            .onSnapshot(manejarSnapchot) //para manejar la base de datos en tiempo real
+            .onSnapshot(manejarSnapschot) //para manejar la base de datos en tiempo real
 
         function manejarSnapschot(snapshot){
             let vehiculo = snapshot.docs.map(doc=>{
