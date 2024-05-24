@@ -9,16 +9,18 @@ import { useNavigation } from '@react-navigation/native'
 
 const DetalleVehiculo = () => {
   const navigate = useNavigation();
-  const { SolicitudServicio} = useContext(VehiculosContext)
-  const {categoria, descripcion, imagen, marca, modelo, precio, id} = SolicitudServicio
+  const { Vehiculos} = useContext(VehiculosContext)
+  const {Categoria, Descripcion, Imagen, Marca, Modelo, Precio, id} = Vehiculos
   return (
     <Box style={globalStyles.contenedor}>
-        <Text>{marca}</Text>
+        <Text>{Marca}</Text>
         <Card>
-          <Card.Cover source={{uri:imagen}}/>
+          <Card.Cover source={{uri:Imagen}}/>
           <Card.Content>
-            <Text>La categoria es: {categoria}</Text>
-            <Text> {descripcion}</Text>
+            <Text>La categoria es: {Categoria}</Text>
+            <Text>El modelo es: {Modelo}</Text>
+            <Text>El precio Es : {Precio}</Text>
+            <Text> {Descripcion}</Text>
           </Card.Content>
           <Card.Actions>
             <Button

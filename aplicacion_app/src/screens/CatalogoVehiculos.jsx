@@ -3,8 +3,7 @@ import { View} from 'react-native';
 import globalStyles from '../../styles/global';
 import { useNavigation, useNavigationBuilder } from '@react-navigation/native';
 import firebaseContext from '../../context/firebase/firebaseContext';
-import VehiculosContext from '../../context/vehiculos/vehiculosContext';
-//import { Fragment, useContext, useEffect } from 'react';
+ import VehiculosContext from '../../context/vehiculos/vehiculosContext';
 import { NativeBaseProvider,ScrollView,Text,Avatar} from 'native-base';
 import {List} from 'react-native-paper'
 import DetalleVehiculo from './DetalleVehiculo';
@@ -24,28 +23,32 @@ const CatalogoVehiculos = () => {
         <ScrollView>
           <View>
              {CatalogoVehiculos.map((vehiculo, i)=>{
-                const {categoria, descripcion, imagen, marca, modelo, precio, id} = vehiculo
+                const {Categoria, Descripcion, Imagen, Marca, Modelo, Precio, id} = vehiculo
+                console.log(Descripcion) 
                 return(
                   <Fragment>
-                    <Avatar size='70px' source={{uri:imagen}}></Avatar>
+                    <Avatar size="70px" source={{uri:Imagen}}></Avatar>
                     <List.Item
-                      title = {marca}
-                      description = {descripcion}
-                      onPress = {()=> navigation.navigate(DetalleVehiculo)}
+                      title = {Marca}
+                      description = {Descripcion}
+                      onPress = {()=> {
+                        seleccionarVehiculos(vehiculo)
+                        navigation.navigate(DetalleVehiculo)
+                      }}
                     >
                     <Text
                       numberOfLines={3}
-                    >{marca}</Text>
-                    <Text>{precio}</Text>
+                    >{Marca}La marca es:</Text>
+                    <Text>{Precio}El precio es:</Text>
+                    <Text>{Categoria} La Categoria es:</Text>
                     </List.Item>
-                    
                   </Fragment>
                 )
              })} 
           </View>
         </ScrollView>
     </NativeBaseProvider>
-  )
+  );
 }
 
 

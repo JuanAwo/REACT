@@ -1,69 +1,60 @@
-import React, {useEffect, useState, useContext} from 'react'
-import { Alert } from 'react-native'
-import VehiculosContext from '../../context/vehiculos/vehiculosContext'
-import {Container, Box, FormControl, HStack} from 'native-base'
-import { useNavigation } from '@react-navigation/native'
-import { Button, Text, TextInput, Card} from 'react-native-paper'
-import firebase from 'firebase/compat/app'
-
+import React, { useEffect, useState, useContext } from 'react';
+import { Alert } from 'react-native';
+import VehiculosContext from '../../context/vehiculos/vehiculosContext';
+import { Container, Box, FormControl, HStack } from 'native-base';
+import { useNavigation } from '@react-navigation/native';
+import { Button, Text, TextInput, Card } from 'react-native-paper';
+import firebase from 'firebase/compat/app';
 
 const SolicitudServicio = () => {
-  const [cantidad, guardadCantidad] = useState(1);
-  const [total, guardarTotal] = useState(0)
+  const [cantidad, guardarCantidad] = useState(1);
+  const [total, guardarTotal] = useState(0);
 
-  const {vehiculo, guardarVehiculo} = useContext(VehiculosContext)
-  const {precio} = vehiculos
-  const incrementar = ()=>{
-    const nuevaCantidad = parseInt(cantidad)+1
-    guardadCantidad(nuevaCantidad)
+  const { Vehiculos, guardarVehiculo } = useContext(VehiculosContext);
+  const { Precio } = Vehiculos;
 
-  }
+  const incrementar = () => {
+    const nuevaCantidad = parseInt(cantidad) + 1;
+    guardarCantidad(nuevaCantidad);
+  };
 
-  const decrementar = ()=>{
-    if(cantidad>1){
-      const nuevaCantidad = parseInt(cantidad)-1
-      guardadCantidad(nuevaCantidad)
+  const decrementar = () => {
+    if (cantidad > 1) {
+      const nuevaCantidad = parseInt(cantidad) - 1;
+      guardarCantidad(nuevaCantidad);
     }
-  }
+  };
 
-  const calcularTotal = ()=>{
-    const totalPagar = cantidad * precio
-    guardarTotal (totalPagar)
-  }
-  
-  useEffect(()=>{
-    calcularTotal()
-  }, [cantidad])
+  const calcularTotal = () => {
+    const totalPagar = cantidad * Precio;
+    guardarTotal(totalPagar);
+  };
 
-   return (
+  useEffect(() => {
+    calcularTotal();
+  }, [cantidad]);
+
+  return (
     <Container>
       <Box>
         <FormControl>
           <Text>Cantidad</Text>
           <HStack space={3}>
-            <Button
-              onPress={()=>decrementar()}
-            >
-              -
-            </Button>
+            <Button onPress={decrementar}>-</Button>
             <TextInput
-              value= {cantidad}
-              onChangeText={cantidad => guardadCantidad(cantidad)}
-            
+              value={cantidad.toString()}
+              onChangeText={(text) => {
+                const newValue = parseInt(text) || 0;
+                guardarCantidad(newValue);
+              }}
             />
-            <Button
-              onPress={()=>incrementar}
-            >
-              +
-            </Button>
-
-
+            <Button onPress={incrementar}>+</Button>
           </HStack>
           <Text>Total a pagar: ${total}</Text>
         </FormControl>
       </Box>
     </Container>
-  )
-}
+  );
+};
 
 export default SolicitudServicio;

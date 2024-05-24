@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { ImageBackground, StyleSheet } from "react-native";
 
 const globalStyles = StyleSheet.create({
     contenedor:{
@@ -12,6 +12,11 @@ const globalStyles = StyleSheet.create({
         textTransform: 'uppercase',
         fontWeight: 'bold',
         color: '#000'
+    },
+    ImageBackground:{
+        flex: 1,
+    resizeMode: 'center', 
+    justifyContent: 'center',
     }
 })
 

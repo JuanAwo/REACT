@@ -16,7 +16,7 @@ const VehiculosState = props =>{
 
     //userReducer con el dispatch
     const [ state, dispatch] = useReducer(VehiculosReducer,initialState)
-    //seleccionar y obtener el producto
+    //seleccionar y obtener el vehiculo
 
     const seleccionarVehiculos = Vehiculos =>{
         dispatch({
@@ -37,7 +37,7 @@ const VehiculosState = props =>{
         <VehiculosContext.Provider
             value={{
                 SolicitudServicio: state.SolicitudServicio,
-                vehiculos: state.vehiculos,
+                Vehiculos: state.Vehiculos,
                 seleccionarVehiculos,
                 guardarVehiculo
 

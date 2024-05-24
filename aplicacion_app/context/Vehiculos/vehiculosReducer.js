@@ -5,7 +5,7 @@ export default (state,action) =>{
         case SELECCIONAR_VEHICULOS:
         return{
             ...state,
-            vehiculos: action.payload
+            Vehiculos: action.payload
         }
         case GUARDAR_VEHICULO:
             return{

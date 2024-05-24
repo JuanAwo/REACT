@@ -24,12 +24,24 @@ const App = () => {
         <FirebaseState>
             <VehiculosState>
                 <Stack.Navigator>
-                  <Stack.Screen name='Inicio' component={Inicio}/>
-                  <Stack.Screen name='CatalogoVehiculos' component={CatalogoVehiculos}/>
-                  <Stack.Screen name='AgendarPrueba' component={AgendarPrueba}/>
-                  <Stack.Screen name='SolicitudServicio' component={SolicitudServicio}/>
-                  <Stack.Screen name='DetalleVehiculo' component={DetalleVehiculo}/>
-                  <Stack.Screen name='SolicitudInformacion' component={SolicitudInformacion}/>
+                  <Stack.Screen name='Inicio' component={Inicio}
+                  options={{title:'Inicio'}}
+                  />
+                  <Stack.Screen name='CatalogoVehiculos' component={CatalogoVehiculos}
+                  options={{title:'CatalogoVehiculo'}}
+                  />
+                  <Stack.Screen name='DetalleVehiculo' component={DetalleVehiculo}
+                  options={{title:'Detalle Vehiculo'}}
+                  />
+                  <Stack.Screen name='SolicitudServicio' component={SolicitudServicio}
+                  options={{title:'Solicitud Servicio'}}
+                  />
+                  <Stack.Screen name='AgendarPrueba' component={AgendarPrueba}
+                  options={{title:'Agendar Prueba'}}
+                  />
+                  <Stack.Screen name='SolicitudInformacion' component={SolicitudInformacion}
+                  options={{title:'Solicitud Informacion'}}
+                  />
                 </Stack.Navigator>
             </VehiculosState>
         </FirebaseState>
