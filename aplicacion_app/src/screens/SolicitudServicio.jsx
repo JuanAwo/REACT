@@ -5,8 +5,10 @@ import { Container, Box, FormControl, HStack } from 'native-base';
 import { useNavigation } from '@react-navigation/native';
 import { Button, Text, TextInput, Card } from 'react-native-paper';
 import firebase from 'firebase/compat/app';
+import Historial from './Historial';
 
 const SolicitudServicio = () => {
+  const navigate = useNavigation();
   const [cantidad, guardarCantidad] = useState(1);
   const [total, guardarTotal] = useState(0);
 
@@ -51,10 +53,18 @@ const SolicitudServicio = () => {
             <Button onPress={incrementar}>+</Button>
           </HStack>
           <Text>Total a pagar: ${total}</Text>
+          <Button
+           onPress={()=> navigate.navigate('Historial', {cantidad: cantidad, total: total})
+
+           }
+          >
+          Comprar</Button>
         </FormControl>
+
       </Box>
     </Container>
   );
 };
 
 export default SolicitudServicio;
+

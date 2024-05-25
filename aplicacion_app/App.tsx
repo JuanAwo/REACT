@@ -14,6 +14,7 @@ import VehiculosState from './context/vehiculos/vehiculosState';
 import Inicio from './src/screens/Inicio';
 import { NativeBaseProvider } from 'native-base';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Historial from './src/screens/Historial';
 
 
 const App = () => {
@@ -42,6 +43,11 @@ const App = () => {
                   <Stack.Screen name='SolicitudInformacion' component={SolicitudInformacion}
                   options={{title:'Solicitud Informacion'}}
                   />
+
+                  <Stack.Screen name='Historial' component={Historial}
+                  options={{title:'Confirmar Tu Compra'}}
+                  />
+                                    
                 </Stack.Navigator>
             </VehiculosState>
         </FirebaseState>
